@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe BodyParser do
+describe EmailParser::Parsers::BodyParser do
 
-  let(:header) { HeaderParser.new( header_string ).header }
-  let(:body_parser) { BodyParser.new( header.content_type, body_string ) }
+  let(:header) { EmailParser::Parsers::HeaderParser.new( header_string ).header }
+  let(:body_parser) { EmailParser::Parsers::BodyParser.new( header.content_type, body_string ) }
 
   describe '#body' do
 
@@ -28,7 +28,7 @@ describe BodyParser do
 
       it 'decorates BodyParser with the appropriate parsing module' do
         decorators = body_parser.singleton_class.included_modules
-        expect(decorators).to include MultipartAlternativeParser
+        expect(decorators).to include EmailParser::Decorators::MultipartAlternativeParser
       end
     end
   end

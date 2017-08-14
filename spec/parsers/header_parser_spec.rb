@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe HeaderParser do
+describe EmailParser::Parsers::HeaderParser do
 
-  let(:header_parser) { HeaderParser.new( header_string ) }
+  let(:header_parser) { EmailParser::Parsers::HeaderParser.new( header_string ) }
   let(:header) { header_parser.header }
 
   describe '#header' do
